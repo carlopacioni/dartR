@@ -98,7 +98,8 @@ if (method==1) {
   
   sample_nms <- colnames(matrix)
   locMetr <- data.table(gl@other$loc.metrics, keep.rownames = TRUE)
-  locMetr[, lenTrim := nchar(as.character(TrimmedSequence))]
+  locMetr[, TrimmedSequence := as.character(TrimmedSequence)]
+  locMetr[, lenTrim := nchar(TrimmedSequence)]
   index <- locMetr[,lenTrim] > gl@position
   if (sum(index)!=nLoc(gl)) {
     message(paste("Not all SNP positions are within the length of the trimmed sequences. Those loci will be deleted (",sum(!index),").\n"  ) )
@@ -119,7 +120,7 @@ if (method==1) {
   
   r <- nrow(matrix)
   c <- ncol(matrix)
-  system.time(
+  #system.time(
   for (i in 1:r) {
     for (j in 1:c) {
       if (matrix[i,j] == 1 && !is.na(matrix[i,j])) {
@@ -129,7 +130,7 @@ if (method==1) {
     }
   #  setTxtProgressBar(pb, i/r)
   }
-  )
+  #)
  
   
 # Prepare the output fastA file
@@ -144,27 +145,28 @@ if (method==1) {
   
   # Shift the index for snppos to start from 1 not zero only once
   locMetr[, SnpPosition := SnpPosition + 1]
-  
   clones <- locMetr[, unique(clone)]
   message(paste("Number of loci >=", min_nSNPs, ":", length(clones)))
   
+  locMetr <- setDF(locMetr)
   ncln <- 0
   mseqs <- matrix(" ", nrow=length(clones), ncol=c) 
-  system.time(
-  for(cln in clones) {
+ # system.time(
+  for(cln in clones) { # could use parLapply(clones, ...) to speed up
     ncln <- ncln + 1
-    m_temp <- matrix[locMetr[, clone] == cln,]
-    locMetr_temp <- locMetr[clone == cln, ]
+    sel <- locMetr$clone == cln
+    m_temp <- matrix[sel,]
+    locMetr_temp <- locMetr[sel, ]
     
     for (j in seq_len(ncol(m_temp))) {
-      trimmed <- as.character(locMetr_temp[1, TrimmedSequence])
+      trimmed <- locMetr_temp[1, "TrimmedSequence"]
       # If the SNP state is missing in all positions, assign NNNNs  
       if (sum(is.na(m_temp[,j])) == nrow(m_temp)) {
         mseqs[ncln, j] <- str_pad("N", nchar(trimmed), side = c("right"), pad="N")
           next
       }
       for (i in seq_len(nrow(m_temp))) {
-        snpos <- locMetr_temp[i, SnpPosition]
+        snpos <- locMetr_temp[i, "SnpPosition"]
           # If the score is homozygous for the reference allele
           if (m_temp[i,j] == 0 && !is.na(m_temp[i,j])) { 
             next
@@ -188,7 +190,7 @@ if (method==1) {
       mseqs[ncln, j] <- trimmed
     }
   }
-  )
+ # )
       #setTxtProgressBar(pb, i/r)
       seqs_vec <- apply(X = mseqs, MARGIN = 2, FUN = paste, collapse="")
       names(seqs_vec) <- sample_nms
@@ -200,8 +202,8 @@ if (method==1) {
       
       for(cln in clones) {
         charsets[which(clones == cln)] <- paste("charset", cln, "=", 1 + pos, "-", 
-                             pos + locMetr[clone == cln, lenTrim][1], ";")
-        pos <-  pos + locMetr[clone == cln, lenTrim][1]
+                             pos + locMetr[locMetr$clone == cln, "lenTrim"][1], ";")
+        pos <-  pos + locMetr[locMetr$clone == cln, "lenTrim"][1]
       }
       
       write(c("\n","begin assumptions;", charsets, "end;"), 
@@ -211,7 +213,7 @@ if (method==1) {
 glnew <- new("genlight", gen=t(matrix), ind.names=sample_nms, 
              loc.names=rownames(matrix), 
              loc.all=str_sub(rownames(matrix), start=nchar(rownames(matrix)) - 2, end=-1),
-             position=locMetr[, SnpPosition - 1], other=list(loc.metrics=locMetr))
+             position=locMetr[, "SnpPosition"] - 1, other=list(loc.metrics=locMetr))
 return(glnew)
 }
 
