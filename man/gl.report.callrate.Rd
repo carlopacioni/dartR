@@ -4,8 +4,7 @@
 \alias{gl.report.callrate}
 \title{Report summary of Call Rate for loci or individuals}
 \usage{
-gl.report.callrate(x, method = "loc", plot = FALSE,
-  smearplot = FALSE)
+gl.report.callrate(x, method = "loc", plot = FALSE, smearplot = FALSE)
 }
 \arguments{
 \item{x}{-- name of the genlight or genind object containing the SNP data [required]}

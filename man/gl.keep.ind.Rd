@@ -4,8 +4,7 @@
 \alias{gl.keep.ind}
 \title{Remove all but the specified individuals from a genelight \{adegenet\} object}
 \usage{
-gl.keep.ind(x, ind.list, recalc = FALSE, mono.rm = FALSE,
-  verbose = 2)
+gl.keep.ind(x, ind.list, recalc = FALSE, mono.rm = FALSE, verbose = 2)
 }
 \arguments{
 \item{x}{-- name of the genlight object containing SNP genotypes or a genind object containing presence/absence data [required]}

@@ -4,8 +4,7 @@
 \alias{gl.filter.hamming}
 \title{Filters loci in a genlight object based on pairwise Hamming distance between sequence tags}
 \usage{
-gl.filter.hamming(x, threshold = 0.2, rs = 5, pb = FALSE,
-  verbose = 2)
+gl.filter.hamming(x, threshold = 0.2, rs = 5, pb = FALSE, verbose = 2)
 }
 \arguments{
 \item{x}{-- name of the genlight object containing the SNP data [required]}

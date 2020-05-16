@@ -4,8 +4,12 @@
 \alias{utils.dart2genlight}
 \title{Convert DarT to genlight}
 \usage{
-utils.dart2genlight(dart, ind.metafile = NULL, covfilename = NULL,
-  probar = TRUE)
+utils.dart2genlight(
+  dart,
+  ind.metafile = NULL,
+  covfilename = NULL,
+  probar = TRUE
+)
 }
 \arguments{
 \item{dart}{a dart object created via read.dart}

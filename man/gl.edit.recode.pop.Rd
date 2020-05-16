@@ -4,8 +4,13 @@
 \alias{gl.edit.recode.pop}
 \title{Create or edit a population re-assignment table}
 \usage{
-gl.edit.recode.pop(x, pop.recode = NULL, recalc = FALSE,
-  mono.rm = TRUE, verbose = 2)
+gl.edit.recode.pop(
+  x,
+  pop.recode = NULL,
+  recalc = FALSE,
+  mono.rm = TRUE,
+  verbose = 2
+)
 }
 \arguments{
 \item{x}{Name of the genlight object for which populations are to be reassigned.[required]}

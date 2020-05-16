@@ -4,8 +4,7 @@
 \alias{gl.read.silicodart}
 \title{Import presence/absence data from SilicoDArT and convert to  genind \{agegenet\} format}
 \usage{
-gl.read.silicodart(datafile, topskip, nmetavar, nas = "-",
-  ind.metafile = NULL)
+gl.read.silicodart(datafile, topskip, nmetavar, nas = "-", ind.metafile = NULL)
 }
 \arguments{
 \item{datafile}{-- name of csv file containing the SilicoDArT data [required]}

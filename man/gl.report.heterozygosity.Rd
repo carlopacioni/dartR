@@ -4,8 +4,15 @@
 \alias{gl.report.heterozygosity}
 \title{Reports observed and expected heterozygosity by population or by individual.}
 \usage{
-gl.report.heterozygosity(x, method = "pop", n.invariant = 0,
-  boxplot = "adjusted", range = 1.5, cex.labels = 0.7, verbose = 2)
+gl.report.heterozygosity(
+  x,
+  method = "pop",
+  n.invariant = 0,
+  boxplot = "adjusted",
+  range = 1.5,
+  cex.labels = 0.7,
+  verbose = 2
+)
 }
 \arguments{
 \item{x}{-- a genlight object containing the SNP genotypes [Required]}
@@ -49,7 +56,7 @@ are heterozygous for that individual.
 
 Output for method="ind" is a histogram of heterozygosity across individuals.
 The histogram is accompanied by a box and whisker plot presented either in standard 
-(boxplot="standard") or adjusted for skewness (boxplot=adjusted).
+(boxplot="standard") or adjusted for skewness (boxplot=adjusted). 
 
 Refer to Tukey (1977, Exploratory Data Analysis. Addison-Wesley) for standard
 Box and Whisker Plots and Hubert & Vandervieren (2008, An Adjusted Boxplot for Skewed

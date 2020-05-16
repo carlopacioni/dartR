@@ -4,8 +4,15 @@
 \alias{gl.dist.pop}
 \title{Calculate a distance matrix for populations defined in an \{adegenet\} genlight object}
 \usage{
-gl.dist.pop(x, method = "euclidean", binary = FALSE, diag = FALSE,
-  upper = FALSE, p = NULL, verbose = 2)
+gl.dist.pop(
+  x,
+  method = "euclidean",
+  binary = FALSE,
+  diag = FALSE,
+  upper = FALSE,
+  p = NULL,
+  verbose = 2
+)
 }
 \arguments{
 \item{x}{-- name of the genlight containing the SNP genotypes [required]}
@@ -34,7 +41,7 @@ differences) and pa (total private alleles) distances.
 The distance measure can be one of "manhattan", "euclidean", "pcfixed", "pa", canberra", "bray", 
 "kulczynski", "jaccard", "gower", "morisita", "horn", "mountford", "raup" , 
 "binomial", "chao", "cao", "mahalanobis", "maximum", "binary" or "minkowski". Refer to the documentation for
-dist stats or vegdist vegan for definitions.
+dist stats or vegdist vegan for definitions. 
 
 Distance pcfixed calculates the pair-wise count of fixed allelic differences between populations. Distance pa
 tallies the total number of private alleles possessed by one or the other population.

@@ -4,8 +4,7 @@
 \alias{gl.pcoa}
 \title{PCoA ordination (glPca)}
 \usage{
-gl.pcoa(x, nfactors = 5, parallel = FALSE, n.cores = 16,
-  verbose = 2)
+gl.pcoa(x, nfactors = 5, parallel = FALSE, n.cores = 16, verbose = 2)
 }
 \arguments{
 \item{x}{-- name of the genlight object containing the SNP data [required]}

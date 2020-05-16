@@ -4,8 +4,13 @@
 \alias{gl.report.secondaries}
 \title{Report loci containing secondary SNPs in a genlight \{adegenet\} object}
 \usage{
-gl.report.secondaries(x, plot = FALSE, boxplot = "adjusted",
-  range = 1.5, verbose = 0)
+gl.report.secondaries(
+  x,
+  plot = FALSE,
+  boxplot = "adjusted",
+  range = 1.5,
+  verbose = 0
+)
 }
 \arguments{
 \item{x}{-- name of the genlight object containing the SNP data [required]}

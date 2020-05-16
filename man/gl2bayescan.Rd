@@ -4,8 +4,7 @@
 \alias{gl2bayescan}
 \title{Convert a genlight object to format suitable for input to Bayescan}
 \usage{
-gl2bayescan(x, outfile = "bayescan.txt", outpath = tempdir(),
-  verbose = 2)
+gl2bayescan(x, outfile = "bayescan.txt", outpath = tempdir(), verbose = 2)
 }
 \arguments{
 \item{x}{-- name of the genlight object containing the SNP data [required]}

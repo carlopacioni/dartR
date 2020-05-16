@@ -4,8 +4,13 @@
 \alias{gl.edit.recode.ind}
 \title{Create or edit a individual (=specimen) names and create an recode_ind file}
 \usage{
-gl.edit.recode.ind(x, ind.recode = NULL, recalc = TRUE,
-  mono.rm = TRUE, verbose = 1)
+gl.edit.recode.ind(
+  x,
+  ind.recode = NULL,
+  recalc = TRUE,
+  mono.rm = TRUE,
+  verbose = 1
+)
 }
 \arguments{
 \item{x}{Name of the genlight object for which individuals are to be relabelled.[required]}

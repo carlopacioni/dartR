@@ -4,8 +4,14 @@
 \alias{gl.drop.pop}
 \title{Remove specified populations from a genelight \{adegenet\} object}
 \usage{
-gl.drop.pop(x, pop.list, as.pop = NULL, recalc = FALSE,
-  mono.rm = FALSE, verbose = 2)
+gl.drop.pop(
+  x,
+  pop.list,
+  as.pop = NULL,
+  recalc = FALSE,
+  mono.rm = FALSE,
+  verbose = 2
+)
 }
 \arguments{
 \item{x}{-- name of the genlight object containing SNP genotypes [required]}

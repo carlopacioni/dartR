@@ -4,8 +4,7 @@
 \alias{utils.read.dart}
 \title{Import DarT data to R}
 \usage{
-utils.read.dart(filename, nas = "-", topskip = NULL,
-  lastmetric = "RepAvg")
+utils.read.dart(filename, nas = "-", topskip = NULL, lastmetric = "RepAvg")
 }
 \arguments{
 \item{filename}{path to file (csv file only currently)}

@@ -4,8 +4,17 @@
 \alias{gl.fixed.diff}
 \title{Generate a matrix of fixed differences from a genelight or genind object \{adegenet\}}
 \usage{
-gl.fixed.diff(x, tloc = 0, test = FALSE, delta = 0.02, reps = 1000,
-  mono.rm = TRUE, plot = FALSE, pb = TRUE, verbose = 2)
+gl.fixed.diff(
+  x,
+  tloc = 0,
+  test = FALSE,
+  delta = 0.02,
+  reps = 1000,
+  mono.rm = TRUE,
+  plot = FALSE,
+  pb = TRUE,
+  verbose = 2
+)
 }
 \arguments{
 \item{x}{-- name of the genlight object containing SNP genotypes [required]}

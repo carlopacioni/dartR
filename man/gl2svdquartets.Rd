@@ -4,8 +4,13 @@
 \alias{gl2svdquartets}
 \title{Convert a genlight object to nexus format PAUP SVDquartets}
 \usage{
-gl2svdquartets(x, outfile = "svd.nex", outpath = tempdir(),
-  method = 2, verbose = 2)
+gl2svdquartets(
+  x,
+  outfile = "svd.nex",
+  outpath = tempdir(),
+  method = 2,
+  verbose = 2
+)
 }
 \arguments{
 \item{x}{-- name of the genlight object containing the SNP data [required]}
